@@ -2,17 +2,21 @@ import { useState } from 'react'
 import './App.css'
 import ThemeButton from './components/ThemeButton'
 import TodoForm from './components/TodoForm'
-import TodoList from './components/TodoList'
+import TodoContainer from './components/TodoContainer'
 
 function App() {
   return (
-  <div className="todo-container">
-    <h1>Todo</h1>
-    <ThemeButton></ThemeButton>
-    <TodoForm />
-    <TodoList />
-  </div>
-  )
+    <section className="section">
+      <article className="article">
+        <div className="container">
+          <h1>TODO</h1>
+          <ThemeButton></ThemeButton>
+        </div>
+        <TodoForm/>
+        <TodoContainer/>
+      </article>
+    </section>
+  );
 }
 
 export default App

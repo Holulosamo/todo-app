@@ -1,1 +1,114 @@
+:root{
+    /* Primay Colors */
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 
+    /* Neutral Colors Light Theme */
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-light-grayish-blue: hsl(236, 33%, 92%);
+    --light-grayish-blue: hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+    /* Neutral Colors Dark Theme */
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue-second: hsl(237, 14%, 26%);
+
+    /* Typography */
+    --font-josefin-sans: 'Josefin Sans', sans-serif;
+}
+
+html, body, #root, .section{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    font-size: 18px;
+    font-family: var(--font-josefin-sans)
+}
+
+.section{
+    background: url(./assets/images/bg-mobile-light.jpg) no-repeat;
+    background-size: 100% 30%;
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container{
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+}
+
+.container h1{
+    font-size: 2rem;
+    letter-spacing: 20px;
+    color: #fff;
+}
+
+.theme-btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+} 
+
+.todo-form{
+    width: inherit;
+    padding-top: 2em;
+    height: 60px;
+}
+
+.todo-label{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: inherit;
+    padding-right: .5em;
+    padding-left: .5em;
+    border-radius: 5px;
+    background-color: var(--very-light-gray);
+}
+
+.form-circle{
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--light-grayish-blue);
+    border-radius: 50%;
+}
+
+.form-span{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: .2em;
+    color: var(--dark-grayish-blue);
+}
+
+.form-input-text{
+    font-size: 20px;
+    font-family: var(--font-josefin-sans);
+    width: 120px;
+    border: none;
+    background-color: var(--very-light-gray);
+}
+
+.form-input-text:focus{
+    border: none;
+    outline: none;
+}
