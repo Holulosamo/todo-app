@@ -1,11 +1,7 @@
 export default function Checkbox(){
-    const styles = {
-        
-    }
-
     return(
     <>
-        <input type="checkbox" />
+        <input type="checkbox" className="todo-checkbox"/>
     </>
     )
 }

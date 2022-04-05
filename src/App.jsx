@@ -5,6 +5,13 @@ import TodoForm from './components/TodoForm'
 import TodoContainer from './components/TodoContainer'
 
 function App() {
+  const [todo, setTodo] = useState([]);
+
+  const createTodo = (data) => {
+    data.id = Math.floor(Math.random() * 1000);
+    setTodo([...todo, data]);
+  }
+
   return (
     <section className="section">
       <article className="article">
@@ -12,8 +19,8 @@ function App() {
           <h1>TODO</h1>
           <ThemeButton></ThemeButton>
         </div>
-        <TodoForm/>
-        <TodoContainer/>
+        <TodoForm createTodo={createTodo}/>
+        <TodoContainer todo={todo} />
       </article>
     </section>
   );

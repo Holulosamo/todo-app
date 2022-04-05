@@ -1,7 +1,7 @@
 :root{
     /* Primay Colors */
     --bright-blue: hsl(220, 98%, 61%);
-    --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
     /* Neutral Colors Light Theme */
     --very-light-gray: hsl(0, 0%, 98%);
@@ -53,7 +53,7 @@ body{
     width: inherit;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1em;
+    padding-top: .6em;
 }
 
 .container h1{
@@ -71,15 +71,16 @@ body{
 
 .todo-form{
     width: inherit;
-    padding-top: 2em;
+    margin-top: 1em;
     height: 60px;
 }
 
 .todo-label{
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 25px 145px auto;
     align-items: center;
     height: inherit;
+    gap: 15px;
     padding-right: .5em;
     padding-left: .5em;
     border-radius: 5px;
@@ -87,6 +88,7 @@ body{
 }
 
 .form-circle{
+    margin-left: 10px;
     width: 25px;
     height: 25px;
     border: 1px solid var(--light-grayish-blue);
@@ -94,17 +96,18 @@ body{
 }
 
 .form-span{
+    justify-self: flex-end;
     font-size: 1rem;
-    text-align: center;
     margin-top: .2em;
+    text-align: center;
     color: var(--dark-grayish-blue);
 }
 
 .form-input-text{
-    font-size: 20px;
+    font-size: 1.3rem;
     font-family: var(--font-josefin-sans);
-    width: 120px;
     border: none;
+    min-width: 70px;
     background-color: var(--very-light-gray);
 }
 
@@ -112,3 +115,54 @@ body{
     border: none;
     outline: none;
 }
+
+.todo-container{
+    width: inherit;
+    margin-top: 1em;
+    border-radius: .3em;
+    background-color: var(--very-light-gray);
+}
+
+.todo-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list-item{
+    
+}
+
+.todo-checkbox{
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--light-grayish-blue);
+    outline: none;
+}
+
+.todo-checkbox:after{
+    content: '';
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url(assets/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo-checkbox:checked{
+    background: var(--check-background);
+}
+
+.todo-checkbox, .todo-task, .btn-delete{
+    cursor: pointer;
+}
+
+.btn-delete{
+    border: none;
+    outline: none;
+    background: none;
+}
+
