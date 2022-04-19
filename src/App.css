@@ -96,10 +96,9 @@ body{
 }
 
 .form-span{
-    justify-self: flex-end;
-    font-size: 1rem;
+    font-size: .9rem;
     margin-top: .2em;
-    text-align: center;
+    margin-left: 1em;
     color: var(--dark-grayish-blue);
 }
 
@@ -121,6 +120,7 @@ body{
     margin-top: 1em;
     border-radius: .3em;
     background-color: var(--very-light-gray);
+    box-shadow: 1px 0 5px rgb(100, 99, 99);
 }
 
 .todo-list{
@@ -129,8 +129,31 @@ body{
     margin: 0;
 }
 
+.todo-list-counter{
+    display: flex;
+    justify-content: space-between;
+}
+
 .todo-list-item{
-    
+    display: grid;
+    grid-template-columns: 20px auto 30px;
+    align-items: center;
+    padding: 1em;
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.todo-list-label{
+    font-size: 1rem;
+    margin-left: 2em;
+}
+
+.todo-list-counter{
+    padding: 1.5em 1em .5em 1em;
+}
+
+.todo-list-counter span{
+    font-size: 1rem;
+    color: var(--dark-grayish-blue);
 }
 
 .todo-checkbox{
