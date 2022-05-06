@@ -12,18 +12,25 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-
-
 function App() {
-  const savedItems = JSON.parse(localStorage.getItem("savedTodo"));
   const [todo, setTodo] = useState(() => {
+    const savedItems = JSON.parse(localStorage.getItem("savedTodo"));
     return savedItems ? savedItems : []
   });
   const [filter, setFilter] = useState("All");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("savedTheme");
+    return savedTheme ? savedTheme : 'light';
+  });
 
   useEffect(() => {
     localStorage.setItem("savedTodo", JSON.stringify(todo));
   }, [todo]);
+
+  useEffect(() => {
+      localStorage.setItem("savedTheme", theme);
+  }, [theme])
+  
 
   const createTodo = (data) => {
     data.id = Math.floor(Math.random() * 1000);
@@ -50,13 +57,13 @@ function App() {
   }
 
   return (
-    <section className="section">
+    <section className='section' data-theme={theme}>
       <article className="article">
         <div className="container">
           <h1>TODO</h1>
-          <ThemeButton></ThemeButton>
+          <ThemeButton theme={theme} setTheme={setTheme}></ThemeButton>
         </div>
-        <TodoForm createTodo={createTodo}/>
+        <TodoForm createTodo={createTodo} theme={theme}/>
         <TodoContainer 
           FILTER_MAP={FILTER_MAP}
           FILTER_NAMES={FILTER_NAMES}
@@ -66,6 +73,7 @@ function App() {
           deleteItems={deleteItems} 
           markAsCompleted={markAsCompleted} 
           itemsLeft={itemsLeft}
+          theme={theme}
         />
       </article>
     </section>

@@ -2,9 +2,9 @@ export default function({name, filter, setFilter}){
     const handleChange = (e) => {
       setFilter(e.target.name);
     };  
-    
+
     return(
-        <li className="todo-status-item">
+    <li className="todo-status-item">
       <input
         className="radio-btn"
         type="radio"

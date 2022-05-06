@@ -7,12 +7,12 @@ const initialTodo = {
   done: false
 }
 
-export default function TodoForm({createTodo}){
+export default function TodoForm({createTodo, theme}){
   const [text, setText] = useState(initialText);
   const [focus, setFocus] = useState(false);
   const [todoList, setTodoList] = useState(initialTodo);
   const styles = {
-    color: "hsl(235, 21%, 11%)",
+    color: theme === 'light' ? "hsl(235, 21%, 11%)" : "hsl(0, 0%, 98%)",
     fontWeight: '500',
     fontSize: '1rem'
   };

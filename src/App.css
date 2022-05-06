@@ -3,27 +3,35 @@
     --bright-blue: hsl(220, 98%, 61%);
     --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
-    /* Neutral Colors Light Theme */
-    --very-light-gray: hsl(0, 0%, 98%);
-    --very-light-grayish-blue: hsl(236, 33%, 92%);
-    --light-grayish-blue: hsl(233, 11%, 84%);
-    --dark-grayish-blue: hsl(236, 9%, 61%);
-    --very-dark-grayish-blue: hsl(235, 19%, 35%);
+    --background-body: hsl(0, 0%, 98%);
+    --backgrounds: hsl(0, 0%, 98%);
+    --background-image-mb: url(./assets/images/bg-mobile-light.jpg) no-repeat;
+    --background-image-desk: url(./assets/images/bg-desktop-light.jpg) no-repeat;
+    --box-shadow: 1px 0 5px rgb(100, 99, 99);
+    --letter-color: hsl(235, 21%, 11%);
+    --hover-clear: hsl(235, 19%, 35%);
+    --hover-status: hsl(235, 21%, 11%);
+    --border-color: hsl(233, 11%, 84%);
+    --span-and-status: hsl(236, 9%, 61%);
 
-    /* Neutral Colors Dark Theme */
-    --very-dark-blue: hsl(235, 21%, 11%);
-    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
-    --light-grayish-blue: hsl(234, 39%, 85%);
-    --light-grayish-blue-hover: hsl(236, 33%, 92%);
-    --dark-grayish-blue: hsl(234, 11%, 52%);
-    --very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --very-dark-grayish-blue-second: hsl(237, 14%, 26%);
 
     /* Typography */
     --font-josefin-sans: 'Josefin Sans', sans-serif;
 }
 
-html, body, #root, .section{
+[data-theme='dark']{
+    --background-body: hsl(235, 21%, 11%);
+    --backgrounds: hsl(235, 24%, 19%);
+    --background-image-mb: url(./assets/images/bg-mobile-dark.jpg) no-repeat;
+    --background-image-desk: url(./assets/images/bg-desktop-dark.jpg) no-repeat;
+    --box-shadow: none;
+    --letter-color: hsl(233, 11%, 84%);
+    --hover-clear: hsl(236, 33%, 92%);
+    --hover-status: hsl(0, 0%, 98%);
+    --border-color: hsl(233, 14%, 35%);
+}
+
+html, body, #root, .section-light, .section{
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -35,8 +43,9 @@ body{
 }
 
 .section{
-    background: url(./assets/images/bg-mobile-light.jpg) no-repeat;
+    background: var(--background-image-mb);
     background-size: 100% 250px;
+    background-color: var(--background-body)
 }
 
 .article{
@@ -67,6 +76,7 @@ body{
     height: 40px;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 } 
 
 .todo-form{
@@ -84,14 +94,14 @@ body{
     padding-right: .5em;
     padding-left: .5em;
     border-radius: 5px;
-    background-color: var(--very-light-gray);
+    background-color: var(--backgrounds);
 }
 
 .form-circle{
     margin-left: 10px;
     width: 25px;
     height: 25px;
-    border: 1px solid var(--light-grayish-blue);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
 }
 
@@ -99,7 +109,7 @@ body{
     font-size: .9rem;
     margin-top: .2em;
     margin-left: 1em;
-    color: var(--dark-grayish-blue);
+    color: var(--span-and-status);
 }
 
 .form-input-text{
@@ -107,7 +117,8 @@ body{
     font-family: var(--font-josefin-sans);
     border: none;
     min-width: 70px;
-    background-color: var(--very-light-gray);
+    background-color: var(--backgrounds);
+    color: var(--bright-blue);
 }
 
 .form-input-text:focus{
@@ -120,8 +131,9 @@ body{
     width: inherit;
     margin-top: 1em;
     border-radius: .3em;
-    background-color: var(--very-light-gray);
-    box-shadow: 1px 0 5px rgb(100, 99, 99);
+    background-color: var(--backgrounds);
+    box-shadow: var(--box-shadow);
+    color: var(--letter-color);
 }
 
 .todo-list{
@@ -135,7 +147,7 @@ body{
     grid-template-columns: 20px auto 30px;
     align-items: center;
     padding: 1em;
-    border-bottom: 1px solid var(--light-grayish-blue);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .todo-list-label{
@@ -143,16 +155,16 @@ body{
     margin-left: 2em;
 }
 
-.todo-list-counter{
+.todo-list-status{
     display: flex;
     justify-content: space-between;
     padding: 1.7em 1em;
     list-style: none;
 }
 
-.todo-list-counter li{
+.todo-list-status li{
     font-size: 1rem;
-    color: var(--dark-grayish-blue);
+    color: var(--span-and-status);
 }
 
 .todo-checkbox{
@@ -160,11 +172,11 @@ body{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 1px solid var(--light-grayish-blue);
+    border: 1px solid var(--border-color);
     outline: none;
 }
 
-.todo-checkbox:after{
+.todo-checkbox:checked:after{
     content: '';
     display: block;
     width: 25px;
@@ -193,7 +205,7 @@ body{
 }
 
 .clear-btn:hover{
-    color: var(--very-dark-grayish-blue)
+    color: var(--hover)
 }
 
 .todo-status{
@@ -203,18 +215,15 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 75px;
+    height: 60px;
     width: 100%;
     padding: 0;
-    box-shadow: 2px 2px 5px rgb(100, 99, 99);
+    box-shadow: var(--box-shadow);
     font-size: 1rem;
     font-weight: 600;
     list-style: none;
-}
-
-.todo-status{
-    text-decoration: none;
-    color: var(--dark-grayish-blue);
+    border-radius: .2em;
+    background-color: var(--backgrounds);
 }
 
 .radio-btn{
@@ -230,18 +239,19 @@ body{
 }
 
 .label-text:hover{
-    color: var(--very-dark-blue);
+    color: var(--hover-status);
 }
 
 @media screen and (min-width: 768px) {
     .section{
-        background: url(./assets/images/bg-desktop-light.jpg) no-repeat;
+        background: var(--background-image-desk);
         background-size: 100% 260px;
+        background-color: var(--background-body)
     }
 
-    .todo-list-counter{
+    .todo-list-status{
         display: grid;
-        grid-template-columns: 81px 225px 123px;
+        grid-template-columns: 100px 225px 123px;
         justify-content: space-between;
         padding: 1.2em;
     }
@@ -249,11 +259,17 @@ body{
     .todo-status{
         all: unset;
         display: flex;
-        justify-content: space-evenly;
+        gap: 1em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .btn-delete{
+        display: none;
     }
 
-    .label-text{
-        font-weight: 600;
+    .todo-list-item:hover > .btn-delete{
+        display: block;
     }
 }
 

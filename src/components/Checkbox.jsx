@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Checkbox({dataID, done, markAsCompleted, itemsLeft}){
+export default function Checkbox({el, dataID, done, markAsCompleted, itemsLeft}){
     const [checked, setChecked] = useState(done)
 
     const handleClick = () => {
@@ -11,9 +11,9 @@ export default function Checkbox({dataID, done, markAsCompleted, itemsLeft}){
     return (
       <>
         <input
+          id={el.task}
           type="checkbox"
           disabled={done}
-          id="task"
           checked={checked}
           onChange={() => setChecked(!checked)}
           className="todo-checkbox"

@@ -1,6 +1,5 @@
-import { useState } from "react"
 import TodoItems from "./TodoItems";
-import TodoListCounter from "./TodoListCounter";
+import TodoListStatus from "./TodoListStatus";
 
 export default function TodoContainer({
   FILTER_MAP,
@@ -10,11 +9,12 @@ export default function TodoContainer({
   todo, 
   deleteItems, 
   markAsCompleted, 
-  itemsLeft
+  itemsLeft,
+  theme
 }){
     const styles = {
       textAlign: "center",
-      color: "hsl(235, 21%, 11%)",
+      color: theme === "light" ? "hsl(235, 21%, 11%)" : "hsl(0, 0%, 98%)",
       fontWeight: "500",
       fontSize: "1rem",
     };
@@ -36,10 +36,12 @@ export default function TodoContainer({
                   deleteItems={deleteItems}
                   markAsCompleted={markAsCompleted}
                   itemsLeft={itemsLeft}
+                  theme={theme}
+                  
                 />
               ))
           )}
-          <TodoListCounter
+          <TodoListStatus
             FILTER_NAMES={FILTER_NAMES}
             filter={filter}
             setFilter={setFilter}

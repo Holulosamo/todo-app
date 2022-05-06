@@ -1,13 +1,13 @@
 import FilterButton from "./FilterButton";
 
-export default function TodoListCounter({
+export default function TodoListStatus({
   FILTER_NAMES,
   filter,
   setFilter,
   itemsLeft,
 }) {
   return (
-    <ul className="todo-list-counter">
+    <ul className="todo-list-status">
       <li>{itemsLeft()} items left</li>
       <ul className="todo-status">
         {FILTER_NAMES.map((name) => (

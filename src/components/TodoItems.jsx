@@ -1,21 +1,22 @@
 import iconCross from "../assets/images/icon-cross.svg";
 import Checkbox from "./Checkbox";
 
-export default function TodoItems({ el, deleteItems, markAsCompleted, itemsLeft }) {
+export default function TodoItems({ el, deleteItems, markAsCompleted, itemsLeft, theme }) {
   const checkedStyle = {
     textDecoration: "line-through",
-    color: "hsl(233, 11%, 84%)",
+    color: theme === "light" ? "hsl(234, 39%, 85%)" : "hsl(233, 14%, 35%)",
   };
 
   return (
     <li className="todo-list-item">
       <Checkbox
+        el={el}
         dataID={el.id}
         done={el.done}
         markAsCompleted={markAsCompleted}
         itemsLeft={itemsLeft}
       ></Checkbox>
-      <label className="todo-list-label" htmlFor="task">
+      <label className="todo-list-label" htmlFor={el.task}>
         <span className="todo-task" style={el.done ? checkedStyle : {}}>
           {el.task}
         </span>
