@@ -1,3 +1,4 @@
+import FilterAllButton from "./FilterAllButton";
 import FilterButton from "./FilterButton";
 
 export default function TodoListStatus({
@@ -5,6 +6,7 @@ export default function TodoListStatus({
   filter,
   setFilter,
   itemsLeft,
+  clearAll
 }) {
   return (
     <ul className="todo-list-status">
@@ -19,7 +21,7 @@ export default function TodoListStatus({
           />
         ))}
       </ul>
-      <li className="clear-btn">Clear Completed</li>
+      <FilterAllButton clearAll={clearAll}></FilterAllButton>
     </ul>
   );
 }

@@ -33,7 +33,8 @@ function App() {
   
 
   const createTodo = (data) => {
-    data.id = Math.floor(Math.random() * 1000);
+    data.id = `${Math.floor(Math.random() * 1000)}`;
+    data.id.toString();
     const todos = [...todo, data]
     setTodo(todos);
   }
@@ -41,6 +42,10 @@ function App() {
   const deleteItems = (id) => {
     const dataDeleted = todo.filter((todo) => todo.id !== id);
     setTodo(dataDeleted);
+  }
+
+  const clearAll = () => {
+    setTodo([]);
   }
 
   const markAsCompleted = (id) => {
@@ -69,11 +74,13 @@ function App() {
           FILTER_NAMES={FILTER_NAMES}
           filter={filter}
           setFilter={setFilter}
+          setTodo={setTodo}
           todo={todo} 
           deleteItems={deleteItems} 
           markAsCompleted={markAsCompleted} 
           itemsLeft={itemsLeft}
           theme={theme}
+          clearAll={clearAll}
         />
       </article>
     </section>
