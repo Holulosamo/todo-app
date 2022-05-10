@@ -30,7 +30,7 @@ export default function TodoItems({ el, index, deleteItems, markAsCompleted, ite
             </span>
           </label>
           <button className="btn-delete" onClick={() => deleteItems(el.id)}>
-            <img src={iconCross} alt="theme-image"/>
+            <img src={iconCross} alt="delete-cross"/>
           </button>
         </li>
       )}

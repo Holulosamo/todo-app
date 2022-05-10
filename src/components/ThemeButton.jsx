@@ -9,7 +9,7 @@ export default function ThemeButton({theme, setTheme}){
 
   return (
     <button className="theme-btn" onClick={handleClick}>
-      <img src={theme === 'light' ? moonIcon : sunIcon} />
+      <img src={theme === 'light' ? moonIcon : sunIcon} alt="theme-image"/>
     </button>
   );
 }
