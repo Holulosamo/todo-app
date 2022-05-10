@@ -71,6 +71,7 @@ export default function TodoContainer({
             clearAll={clearAll}
           />
         </article>
+        <span className="info-text">Drag and drop to reorder list</span>
       </DragDropContext>
     );
 }

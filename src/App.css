@@ -7,12 +7,13 @@
     --backgrounds: hsl(0, 0%, 98%);
     --background-image-mb: url(./assets/images/bg-mobile-light.jpg) no-repeat;
     --background-image-desk: url(./assets/images/bg-desktop-light.jpg) no-repeat;
-    --box-shadow: 1px 0 5px rgb(100, 99, 99);
+    --box-shadow: 0px 1px 15px rgb(160, 160, 160);
     --letter-color: hsl(235, 21%, 11%);
     --hover-clear: hsl(235, 19%, 35%);
     --hover-status: hsl(235, 21%, 11%);
     --border-color: hsl(233, 11%, 84%);
     --span-and-status: hsl(236, 9%, 61%);
+    --info-text: hsl(236, 9%, 61%);
 
 
     /* Typography */
@@ -24,11 +25,12 @@
     --backgrounds: hsl(235, 24%, 19%);
     --background-image-mb: url(./assets/images/bg-mobile-dark.jpg) no-repeat;
     --background-image-desk: url(./assets/images/bg-desktop-dark.jpg) no-repeat;
-    --box-shadow: none;
+    --box-shadow: 0 5px 50px hsl(0, 0%, 2%);
     --letter-color: hsl(233, 11%, 84%);
     --hover-clear: hsl(236, 33%, 92%);
     --hover-status: hsl(0, 0%, 98%);
     --border-color: hsl(233, 14%, 35%);
+    --info-text: hsl(233, 14%, 35%);
 }
 
 html, body, #root, .section-light, .section{
@@ -210,9 +212,6 @@ body{
     color: var(--span-and-status);
 }
 
-.clear-btn:hover{
-    color: var(--hover)
-}
 
 .todo-status{
     position: absolute;
@@ -244,8 +243,10 @@ body{
     color: var(--bright-blue);
 }
 
-.label-text:hover{
-    color: var(--hover-status);
+
+.info-text{
+    margin-top: 150px;
+    color: var(--info-text);
 }
 
 @media screen and (min-width: 768px) {
@@ -268,15 +269,34 @@ body{
         display: flex;
         gap: 1em;
     }
+
+    .info-text{
+    margin-top: 55px;
+    }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (hover:hover) {
+    .todo-checkbox:not(:checked):hover{
+    background: 
+    linear-gradient(var(--backgrounds) 0 0) padding-box,
+    linear-gradient(140deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+    border: 1px solid transparent;
+    }
+
     .btn-delete{
         display: none;
     }
 
     .todo-list-item:hover > .btn-delete{
         display: block;
+    }
+
+    .clear-btn:hover{
+    color: var(--hover)
+    }
+
+    .label-text:hover{
+    color: var(--hover-status);
     }
 }
 
