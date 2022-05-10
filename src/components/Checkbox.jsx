@@ -11,7 +11,7 @@ export default function Checkbox({el, dataID, done, markAsCompleted, itemsLeft})
     return (
       <>
         <input
-          id={el.task}
+          id={el.id}
           type="checkbox"
           disabled={done}
           checked={checked}

@@ -24,13 +24,13 @@ export default function TodoItems({ el, index, deleteItems, markAsCompleted, ite
             markAsCompleted={markAsCompleted}
             itemsLeft={itemsLeft}
           ></Checkbox>
-          <label className="todo-list-label" htmlFor={el.task}>
+          <label className="todo-list-label" htmlFor={el.id}>
             <span className="todo-task" style={el.done ? checkedStyle : {}}>
               {el.task}
             </span>
           </label>
           <button className="btn-delete" onClick={() => deleteItems(el.id)}>
-            <img src={iconCross} />
+            <img src={iconCross} alt="theme-image"/>
           </button>
         </li>
       )}
