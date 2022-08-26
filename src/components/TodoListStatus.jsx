@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import FilterAllButton from "./FilterAllButton";
 import FilterButton from "./FilterButton";
+import ItemsContext from "../context/ItemsContext";
+import FilterContext from "../context/FilterContext";
 
-export default function TodoListStatus({
-  FILTER_NAMES,
-  filter,
-  setFilter,
-  itemsLeft,
-  clearAll
-}) {
+export default function TodoListStatus() {
+  const { itemsLeft, clearAll } = useContext(ItemsContext);
+  const { FILTER_NAMES, filter, setFilter } = useContext(FilterContext)
+
   return (
     <ul className="todo-list-status">
       <li>{itemsLeft()} items left</li>

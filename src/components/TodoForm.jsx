@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ThemeContext from "../context/ThemeContext";
+import ItemsContext from "../context/ItemsContext"
 
 const initialText = 'Create a new todo...';
 const initialTodo = {
@@ -7,7 +9,10 @@ const initialTodo = {
   done: false
 }
 
-export default function TodoForm({createTodo, theme}){
+export default function TodoForm(){
+  const { theme } = useContext(ThemeContext);
+  const {createTodo} = useContext(ItemsContext);
+
   const [text, setText] = useState(initialText);
   const [focus, setFocus] = useState(false);
   const [todoList, setTodoList] = useState(initialTodo);

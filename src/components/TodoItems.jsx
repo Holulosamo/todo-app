@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import iconCross from "../assets/images/icon-cross.svg";
+import ThemeContext from "../context/ThemeContext";
+import ItemsContext from "../context/ItemsContext";
 import Checkbox from "./Checkbox";
 
-export default function TodoItems({ el, index, deleteItems, markAsCompleted, itemsLeft, theme,  }) {
+export default function TodoItems({ el, index }) {
+  const {deleteItems} = useContext(ItemsContext);
+  const { theme } = useContext(ThemeContext);
+
   const checkedStyle = {
     textDecoration: "line-through",
     color: theme === "light" ? "hsl(234, 39%, 85%)" : "hsl(233, 14%, 35%)",
@@ -21,8 +27,6 @@ export default function TodoItems({ el, index, deleteItems, markAsCompleted, ite
             el={el}
             dataID={el.id}
             done={el.done}
-            markAsCompleted={markAsCompleted}
-            itemsLeft={itemsLeft}
           ></Checkbox>
           <label className="todo-list-label" htmlFor={el.id}>
             <span className="todo-task" style={el.done ? checkedStyle : {}}>
