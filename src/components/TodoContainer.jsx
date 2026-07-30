@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import TodoItems from "./TodoItems";
 import TodoListStatus from "./TodoListStatus";
-import ItemsContext from "../context/ItemsContext";
+import {ItemsContext} from "../context/ItemsContext.jsx";
 import FilterContext from "../context/FilterContext";
 
 export default function TodoContainer() {

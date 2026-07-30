@@ -3,7 +3,7 @@ import './App.css';
 import ThemeButton from './components/ThemeButton';
 import TodoForm from './components/TodoForm';
 import TodoContainer from './components/TodoContainer';
-import ThemeContext from './context/ThemeContext';
+import {ThemeContext} from './context/ThemeContext.jsx';
 
 function App() {
   const {theme} = useContext(ThemeContext);

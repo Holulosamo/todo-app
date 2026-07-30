@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import ThemeContext from "../context/ThemeContext";
-import ItemsContext from "../context/ItemsContext"
+import {ThemeContext} from "../context/ThemeContext.jsx";
+import {ItemsContext} from "../context/ItemsContext.jsx"
 
 const initialText = 'Create a new todo...';
 const initialTodo = {

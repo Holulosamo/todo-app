@@ -57,8 +57,9 @@ const ItemsProvider = ({children}) => {
       setTodo(dataDeleted);
     };
 
-    const clearAll = () => {
-      setTodo([]);
+    const deleteCompletedTasks = () => {
+      const clearCompleted = todo.filter((todo) => !todo.done);
+      setTodo(clearCompleted);
     };
 
     const markAsCompleted = (id) => {
@@ -88,7 +89,7 @@ const ItemsProvider = ({children}) => {
         todo,
         createTodo,
         deleteItems,
-        clearAll,
+        deleteCompletedTasks,
         markAsCompleted,
         itemsLeft
     }
@@ -100,5 +101,4 @@ const ItemsProvider = ({children}) => {
     );
 }
 
-export { ItemsProvider };
-export default ItemsContext;
+export { ItemsContext,ItemsProvider };

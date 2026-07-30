@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import iconCross from "../assets/images/icon-cross.svg";
-import ThemeContext from "../context/ThemeContext";
-import ItemsContext from "../context/ItemsContext";
+import {ThemeContext} from "../context/ThemeContext.jsx";
+import {ItemsContext} from "../context/ItemsContext.jsx";
 import Checkbox from "./Checkbox";
 
 export default function TodoItems({ el, index }) {

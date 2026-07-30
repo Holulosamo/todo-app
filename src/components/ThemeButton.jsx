@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import moonIcon from "../assets/images/icon-moon.svg";
 import sunIcon from "../assets/images/icon-sun.svg";
-import ThemeContext from "../context/ThemeContext";
+import {ThemeContext} from "../context/ThemeContext.jsx";
 
 export default function ThemeButton(){
   const { theme, handleTheme } = useContext(ThemeContext);
