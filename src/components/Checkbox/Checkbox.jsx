@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useState } from "react";
-import {ItemsContext} from "../context/ItemsContext.jsx";
+import {ItemsContext} from "../../context/ItemsContext.jsx";
 
 export default function Checkbox({ el, dataID, done }) {
   const { markAsCompleted, itemsLeft } = useContext(ItemsContext);

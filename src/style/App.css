@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root{
     /* Primay Colors */
     --bright-blue: hsl(220, 98%, 61%);
@@ -5,8 +7,8 @@
 
     --background-body: hsl(0, 0%, 98%);
     --backgrounds: hsl(0, 0%, 98%);
-    --background-image-mb: url(./assets/images/bg-mobile-light.jpg) no-repeat;
-    --background-image-desk: url(./assets/images/bg-desktop-light.jpg) no-repeat;
+    --background-image-mb: url(../assets/images/bg-mobile-light.jpg) no-repeat;
+    --background-image-desk: url(../assets/images/bg-desktop-light.jpg) no-repeat;
     --box-shadow: 0px 1px 15px rgb(160, 160, 160);
     --letter-color: hsl(235, 21%, 11%);
     --hover-clear: hsl(235, 19%, 35%);
@@ -23,8 +25,8 @@
 [data-theme='dark']{
     --background-body: hsl(235, 21%, 11%);
     --backgrounds: hsl(235, 24%, 19%);
-    --background-image-mb: url(./assets/images/bg-mobile-dark.jpg) no-repeat;
-    --background-image-desk: url(./assets/images/bg-desktop-dark.jpg) no-repeat;
+    --background-image-mb: url(../assets/images/bg-mobile-dark.jpg) no-repeat;
+    --background-image-desk: url(../assets/images/bg-desktop-dark.jpg) no-repeat;
     --box-shadow: 0 5px 50px hsl(0, 0%, 2%);
     --letter-color: hsl(233, 11%, 84%);
     --hover-clear: hsl(236, 33%, 92%);
@@ -59,15 +61,12 @@ body{
     margin: 0 auto;
 }
 
-.container{
-    display: flex;
+.header{
     width: inherit;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: .6em;
+    padding: .6em;
 }
 
-.container h1{
+.header h1{
     font-size: 2rem;
     letter-spacing: 20px;
     color: #fff;

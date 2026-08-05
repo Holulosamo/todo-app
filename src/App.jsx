@@ -1,20 +1,17 @@
-import { useContext, useEffect, useState } from 'react';
-import './App.css';
-import ThemeButton from './components/ThemeButton';
-import TodoForm from './components/TodoForm';
+import { useContext } from 'react';
+import './style/App.css';
+import TodoForm from './components/TodoForm/TodoForm.jsx';
 import TodoContainer from './components/TodoContainer';
 import {ThemeContext} from './context/ThemeContext.jsx';
+import Header from './components/Header/Header.jsx';
 
 function App() {
   const {theme} = useContext(ThemeContext);
-
+  
   return (
       <section className="section" data-theme={theme}>
+        <Header/>   
         <article className="article">
-          <div className="container">
-            <h1>TODO</h1>
-            <ThemeButton></ThemeButton>
-          </div>
           <TodoForm />
           <TodoContainer/>
         </article>

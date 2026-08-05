@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import iconCross from "../assets/images/icon-cross.svg";
 import {ThemeContext} from "../context/ThemeContext.jsx";
 import {ItemsContext} from "../context/ItemsContext.jsx";
-import Checkbox from "./Checkbox";
+import Checkbox from "./Checkbox/Checkbox.jsx";
 
 export default function TodoItems({ el, index }) {
   const {deleteItems} = useContext(ItemsContext);
