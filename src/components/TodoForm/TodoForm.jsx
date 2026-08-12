@@ -48,7 +48,7 @@ export default function TodoForm(){
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
-      <label className="todo-label">
+      <label className="grid grid-cols-[25px_145px_auto] h-[inherit] form-label items-center">
         <div className="form-circle"></div>
         <span style={focus ? styles : {}} className="form-span">{text}</span>
         <input type="text" value={todoList.task} className="form-input-text" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange}/>

@@ -1,7 +1,7 @@
-export default function Button({name}){
+export default function Button({text}){
     return(
-        <button >
-            {name}
+        <button className={`cursor-pointer text-white`}>
+            {text}
         </button>
     )
 }

@@ -10,6 +10,11 @@ const ThemeProvider = ({children}) => {
 
     useEffect(() => {
       localStorage.setItem("savedTheme", theme);
+
+      const root = document.documentElement;
+
+      root.setAttribute("data-theme", theme);
+      
     }, [theme])
 
     const handleTheme = () => {

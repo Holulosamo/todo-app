@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/index.css'
+import './style/App.css'
 import App from './App'
 import { ThemeProvider } from './context/ThemeContext';
 import { ItemsProvider } from './context/ItemsContext';

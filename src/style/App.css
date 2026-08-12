@@ -1,34 +1,64 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer components{
+    .form-label{
+        height: 35px;
+        gap: 15px;
+        padding-right: .5em;
+        padding-left: .5em;
+        border-radius: 5px;
+        background-color: var(--bg-items);
+        color: var(--span-and-status);
+    }
+
+    .form-input{
+        font-size: 1.3rem;
+        font-family: var(--font-josefin-sans);
+        border: none;
+        min-width: 70px;
+        background-color: var(--bg-items);
+        color: var(--bright-blue);
+    }
+}
+
+@utility reset{
+    @apply border-none outline-none
+}
+
+@utility custom-width{
+    @apply w-4/5
+}
+
 :root{
     /* Primay Colors */
     --bright-blue: hsl(220, 98%, 61%);
-    --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --bg-button: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
-    --background-body: hsl(0, 0%, 98%);
-    --backgrounds: hsl(0, 0%, 98%);
-    --background-image-mb: url(../assets/images/bg-mobile-light.jpg) no-repeat;
-    --background-image-desk: url(../assets/images/bg-desktop-light.jpg) no-repeat;
+    --bg-body: hsl(0, 0%, 98%);
+    --bg-items: hsl(0, 0%, 98%);
+    --bg-image-mb: url(../assets/images/bg-mobile-light.jpg) no-repeat;
+    --bg-image-desk: url(../assets/images/bg-desktop-light.jpg) no-repeat;
     --box-shadow: 0px 1px 15px rgb(160, 160, 160);
-    --letter-color: hsl(235, 21%, 11%);
+    --txt-color: hsl(235, 21%, 11%);
     --hover-clear: hsl(235, 19%, 35%);
     --hover-status: hsl(235, 21%, 11%);
     --border-color: hsl(233, 11%, 84%);
     --span-and-status: hsl(236, 9%, 61%);
     --info-text: hsl(236, 9%, 61%);
 
-
     /* Typography */
     --font-josefin-sans: 'Josefin Sans', sans-serif;
 }
 
 [data-theme='dark']{
-    --background-body: hsl(235, 21%, 11%);
-    --backgrounds: hsl(235, 24%, 19%);
-    --background-image-mb: url(../assets/images/bg-mobile-dark.jpg) no-repeat;
-    --background-image-desk: url(../assets/images/bg-desktop-dark.jpg) no-repeat;
+    --bg-body: hsl(235, 21%, 11%);
+    --bg-items: hsl(235, 24%, 19%);
+    --bg-image-mb: url(../assets/images/bg-mobile-dark.jpg) no-repeat;
+    --bg-image-desk: url(../assets/images/bg-desktop-dark.jpg) no-repeat;
     --box-shadow: 0 5px 50px hsl(0, 0%, 2%);
-    --letter-color: hsl(233, 11%, 84%);
+    --txt-color: hsl(233, 11%, 84%);
     --hover-clear: hsl(236, 33%, 92%);
     --hover-status: hsl(0, 0%, 98%);
     --border-color: hsl(233, 14%, 35%);
@@ -47,9 +77,9 @@ body{
 }
 
 .section{
-    background: var(--background-image-mb);
+    background: var(--bg-image-mb);
     background-size: 100% 250px;
-    background-color: var(--background-body)
+    background-color: var(--bg-body);
 }
 
 .article{
@@ -86,18 +116,6 @@ body{
     height: 60px;
 }
 
-.todo-label{
-    display: grid;
-    grid-template-columns: 25px 145px auto;
-    align-items: center;
-    height: inherit;
-    gap: 15px;
-    padding-right: .5em;
-    padding-left: .5em;
-    border-radius: 5px;
-    background-color: var(--backgrounds);
-}
-
 .form-circle{
     margin-left: 10px;
     width: 25px;
@@ -121,7 +139,7 @@ body{
     font-family: var(--font-josefin-sans);
     border: none;
     min-width: 70px;
-    background-color: var(--backgrounds);
+    background-color: var(--bg-items);
     color: var(--bright-blue);
 }
 
@@ -135,9 +153,9 @@ body{
     width: inherit;
     margin-top: 1em;
     border-radius: .3em;
-    background-color: var(--backgrounds);
+    background-color: var(--bg-items);
     box-shadow: var(--box-shadow);
-    color: var(--letter-color);
+    color: var(--txt-color);
 }
 
 .todo-list{
@@ -185,13 +203,13 @@ body{
     display: block;
     width: 25px;
     height: 25px;
-    background: url(assets/images/icon-check.svg);
+    background: url(../assets/images/icon-check.svg);
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .todo-checkbox:checked{
-    background: var(--check-background);
+    background: var(--bg-button);
 }
 
 .todo-checkbox, .todo-task, .btn-delete{
@@ -230,7 +248,7 @@ body{
     font-weight: 600;
     list-style: none;
     border-radius: .2em;
-    background-color: var(--backgrounds);
+    background-color: var(--bg-items);
 }
 
 .radio-btn{
@@ -251,11 +269,13 @@ body{
     color: var(--info-text);
 }
 
+
+
 @media screen and (min-width: 768px) {
     .section{
-        background: var(--background-image-desk);
+        background: var(--bg-image-desk);
         background-size: 100% 260px;
-        background-color: var(--background-body)
+        background-color: var(--bg-body);
     }
 
     .todo-list-status{
@@ -280,7 +300,7 @@ body{
 @media screen and (hover:hover) {
     .todo-checkbox:not(:checked):hover{
     background: 
-    linear-gradient(var(--backgrounds) 0 0) padding-box,
+    linear-gradient(var(--bg-items) 0 0) padding-box,
     linear-gradient(140deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
     border: 1px solid transparent;
     }
