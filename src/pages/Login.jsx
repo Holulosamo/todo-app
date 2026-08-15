@@ -1,13 +1,17 @@
 import Button from "../components/Button/Button";
+import Input from "../components/Input/Input";
 
 export default function Login(){
-    
 
     return(
-        <form className="flex flex-col items-center bg-(--bg-body) gap-3 m-auto size-70 min-[768px]:size-100 shadow-(--box-shadow)">
-                <label htmlFor="email" className="form-label flex column justify-center custom-width">Email: <input type="email" className="reset form-input"></input></label>
-                <label htmlFor="password" className="form-label flex column custom-width">Password: <input type="password" className="reset form-input"></input></label>
-            <Button text="Login"/>
+        <form className="form">
+            <h2 className="text-(--txt-color) text-3xl">Login</h2>
+            <Input type="email" text="Email"/>
+            <Input type="password" text="Password"/>
+            <div className="w-4/5 pt-3.5">
+                <Button text="Login" customStyle="button button-style"/>
+                <Button text="Register" customStyle="button button-style ml-6"/>
+            </div>
         </form>
     )
 }

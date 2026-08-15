@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import DeleteCompleteBtn from "./DeleteCompleteBtn.jsx";
-import FilterButton from "./FilterButton";
-import {ItemsContext} from "../context/ItemsContext.jsx";
-import FilterContext from "../context/FilterContext";
+import ClearBtn from "../ClearBtn/ClearBtn.jsx";
+import FilterButton from "../FilterButton/FilterButton.jsx";
+import {ItemsContext} from "../../context/ItemsContext.jsx";
+import FilterContext from "../../context/FilterContext.jsx";
 
-export default function TodoListStatus() {
+export default function ListStatus() {
   const { itemsLeft, deleteCompletedTasks } = useContext(ItemsContext);
   const { FILTER_NAMES, filter, setFilter } = useContext(FilterContext)
 
@@ -21,7 +21,7 @@ export default function TodoListStatus() {
           />
         ))}
       </ul>
-      <DeleteCompleteBtn deleteCompletedTasks={deleteCompletedTasks}></DeleteCompleteBtn>
+      <ClearBtn deleteCompletedTasks={deleteCompletedTasks} />
     </ul>
   );
 }

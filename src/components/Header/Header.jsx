@@ -6,10 +6,8 @@ export default function Header() {
         <header className="header flex items-center justify-around">
           <h1>TODO</h1>
           <ThemeButton/>
-          <div className='flex gap-2'>
-            <Button text="Login"/>
-            <Button text="Sign Up"/>
-          </div>
+          {/* <div className='flex gap-2'>
+          </div> */}
         </header>
     );
 }

@@ -3,6 +3,11 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer components{
+    .form{
+        @apply flex flex-col items-center bg-(--bg-body) gap-3 m-auto w-4/5 min-[768px]:w-20/50 min-[1024px]:w-15/50 shadow-md rounded-xl;
+        padding: 3rem 0;
+    }   
+
     .form-label{
         height: 35px;
         gap: 15px;
@@ -21,6 +26,17 @@
         background-color: var(--bg-items);
         color: var(--bright-blue);
     }
+
+    .button{
+        color: #fff;
+        background-color: var(--bright-blue);
+        padding: 0 0.5em;
+    }
+}
+
+@utility button-style{
+    @apply text-white text-xl dark:bg-(--bg-items) h-11 rounded-md shadow-md;
+    @apply hover:bg-blue-400
 }
 
 @utility reset{
