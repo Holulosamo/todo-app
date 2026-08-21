@@ -27,6 +27,11 @@
         color: var(--bright-blue);
     }
 
+
+    .buttons-wrapper{
+        @apply flex items-center justify-between gap-5 w-4/5 pt-3.5;
+    }
+
     .button{
         color: #fff;
         background-color: var(--bright-blue);

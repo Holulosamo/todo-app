@@ -12,7 +12,6 @@ const root = document.getElementById("root")
 
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
-    <React.StrictMode>
     <FilterProvider>
       <ItemsProvider>
         <ThemeProvider>
@@ -20,6 +19,5 @@ ReactDOM.createRoot(root).render(
         </ThemeProvider>
       </ItemsProvider>
     </FilterProvider>
-    </React.StrictMode>
   </BrowserRouter>,
 );
