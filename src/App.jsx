@@ -13,17 +13,21 @@ import z from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+const noSpecialCharacters = /^[a-zA-Z0-9]+$/
+
 const schema = z.object({
    username: z.string().transform(value => value.replace(/\s+/g, ''))
-    .pipe(z.string().min(5, "El usuario debe tener al menos 5 carácteres"))
-    .refine((val) => noSpecialCharacters.test(val ?? ""), 'El usuario no puede contener carácteres especiales'),
-    email: z.email("Ingrese un correo electrónico valido"),
-    password: z.string().transform(value => value.replace(/\s+/g, '')).pipe(z.string().min(6, "La contraseña debe tener al menos 6 carácteres")),
+    .pipe(z.string().min(5, "Username must be at least 4 characters long").max(15, "Username is too long"))
+    .refine((val) => noSpecialCharacters.test(val ?? ""), 'Username doesnt support special characters'),
+    email: z.email("Enter a valid email address like name@example.com"),
+    password: z.string().transform(value => value.replace(/\s+/g, '')).pipe(z.string().min(7, "Your password must be at least 7 characters long")),
 })
 
 function App() {
   const methods = useForm({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(schema),
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
   });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 

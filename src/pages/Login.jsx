@@ -4,12 +4,7 @@ import Input from "../components/Input/Input";
 import { useFormContext } from "react-hook-form";
 
 export default function Login(){
-    const { handleSubmit, control } = useFormContext({
-        defaultValues: {
-            FirstName: "",
-        },
-        mode: "onChange"
-    });
+    const { register, handleSubmit, control, formState: {errors}, setValue } = useFormContext();
 
     return(
         <form className="form">
