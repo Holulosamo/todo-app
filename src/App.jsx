@@ -5,13 +5,14 @@ import TodoContainer from './components/TodoContainer/TodoContainer.jsx';
 import {ThemeContext} from './context/ThemeContext.jsx';
 import Header from './components/Header/Header.jsx';
 import Login from './pages/Login.jsx';
-import { Routes, Route, Navigate } from 'react-router';
+import { Routes, Route, Navigate, Outlet } from 'react-router';
 import Home from './pages/Home.jsx';
 import { useState } from 'react';
 import Register from './pages/Register.jsx';
 import z from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import AuthLayout from './layout/AuthLayout.jsx';
 
 const noSpecialCharacters = /^[a-zA-Z0-9]+$/
 
@@ -44,11 +45,10 @@ function App() {
           element={
             isAuthenticated
             ? <Home />
-            : <Navigate to="login" replace />
+            : <Navigate to="/auth/login" replace />
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="auth/*" element={<AuthLayout/>} />
       </Routes>
       </section>
     </FormProvider>

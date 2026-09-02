@@ -3,12 +3,16 @@ import Button from '../components/Button/Button.jsx'
 import Input from '../components/Input/Input.jsx'
 import { NavLink } from "react-router"
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage.jsx';
+import usePost from '../hooks/usePost.jsx';
 
 export default function Register() {
-    const { handleSubmit, control, formState: {errors}} = useFormContext();
+    const { handleSubmit, reset, control, formState: {errors}} = useFormContext();
 
-    const onSubmit = (val) => {
+    const {postData} = usePost();
 
+    const onSubmit = async (data) => {
+       await postData('/', data);
+       reset();
     }
 
     const onError = (err, event) => {
@@ -26,7 +30,7 @@ export default function Register() {
             {errors?.password && <ErrorMessage message={errors?.password.message}/>}
             <div className="buttons-wrapper">
                 <Button text="Register" customStyle="button button-style"/>
-                <NavLink to="/login" className="text-(--bright-blue) hover:text-(--txt-color)">Already signed up?</NavLink>
+                <NavLink to="../login" className="text-(--bright-blue) hover:text-(--txt-color)">Already signed up?</NavLink>
             </div>
         </form>
     )

@@ -13,7 +13,7 @@ export default function Login(){
             <Input type="password" text="Password"/>
             <div className="buttons-wrapper">
                 <Button text="Login" customStyle="button button-style"/>
-                <NavLink to="/register" className="text-(--bright-blue) hover:text-(--txt-color)">Create an account</NavLink>
+                <NavLink to="../register" className="text-(--bright-blue) hover:text-(--txt-color)">Create an account</NavLink>
             </div>
         </form>
     )
