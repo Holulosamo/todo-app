@@ -1,15 +1,13 @@
-import { useFormContext } from "react-hook-form"
-
-export default function Input({type, text, useFormRegister}){
-    const {register} = useFormContext();
-    
+export default function Input({type, text, name, register}){
     return(
-        <label  htmlFor={type} 
+        <label  htmlFor={name} 
                 className="form-label flex items-center custom-width">
             {text}:
-            <input type={type}
+            <input 
+            id={name}
+            type={type}
             className="reset form-input"
-            {...useFormRegister ? {...register(useFormRegister)} : null}
+            {...register ? {...register(name)} : {}}
             />
         </label>
     )
