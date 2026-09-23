@@ -15,12 +15,12 @@ export default function Login(){
     }
 
     return(
-        <form className="form login-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-(--txt-color) text-3xl">Login</h2>
             <Input type="email" text="Email" name="login-email" register={register}/>
             <Input type="password" text="Password" name="login-password" register={register}/>
             <div className="buttons-wrapper">
-                <Button text="Login" customStyle="button button-style" form="login-form"/>
+                <Button text="Login" customStyle="button button-style"/>
                 <NavLink to="../register" className="text-(--bright-blue) hover:text-(--txt-color)">Create an account</NavLink>
             </div>
         </form>

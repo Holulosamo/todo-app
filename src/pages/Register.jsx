@@ -11,7 +11,7 @@ export default function Register() {
     const { handleSubmit, reset, control, register, formState: {errors}} = useForm({
         resolver: zodResolver(registerSchema),
         mode: "onSubmit",
-        reValidateMode: "onSubmit"
+        reValidateMode: "onChange"
     });
 
     const {postData} = usePost();
@@ -26,16 +26,16 @@ export default function Register() {
     }
 
     return(
-        <form className="form register-form" onSubmit={handleSubmit(onSubmit, onError)}>
+        <form className="form" onSubmit={handleSubmit(onSubmit, onError)}>
             <h2 className="text-(--txt-color) text-3xl">Create account</h2>
-            <Input type="text" text="Username" name="register-username" register={register}/>
-            {errors?.["register-username"] && <ErrorMessage message={errors?.["register-username"].message}/>}
-            <Input type="email" text="Email" name="register-email" register={register}/>
-            {errors?.["register-email"] && <ErrorMessage message={errors?.["register-email"].message}/>}
-            <Input type="password" text="Password" name="register-password" register={register}/>
-            {errors?.["register-password"] && <ErrorMessage message={errors?.["register-password"].message}/>}
+            <Input type="text" text="Username" name={"registerUsername"} register={register}/>
+            {errors?.registerUsername && <ErrorMessage message={errors?.registerUsername.message}/>}
+            <Input type="email" text="Email" name="registerEmail" register={register}/>
+            {errors?.registerEmail && <ErrorMessage message={errors?.registerEmail.message}/>}
+            <Input type="password" text="Password" name="registerPassword" register={register}/>
+            {errors?.registerPassword && <ErrorMessage message={errors?.registerPassword.message}/>}
             <div className="buttons-wrapper">
-                <Button text="Register" customStyle="button button-style" formProperty="register-form"/>
+                <Button text="Register" customStyle="button button-style"/>
                 <NavLink to="../login" className="text-(--bright-blue) hover:text-(--txt-color)">Already signed up?</NavLink>
             </div>
         </form>

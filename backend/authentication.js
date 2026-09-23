@@ -35,13 +35,13 @@ app.get('/', function(req, res){
 
 app.post("/api/auth/register", async (req, res) => {
   console.log(req.body)
-  const {username, email, password} = req.body;
+  const {registerUsername, registerEmail, registerPassword} = req.body;
   try{
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(registerPassword, salt);
     const newUser = await pool.query(
       "INSERT INTO public.\"user\"(username, email, password) VALUES ($1, $2, $3) RETURNING *",
-      [username, email, hashedPassword]
+      [registerUsername, registerEmail, hashedPassword]
     );
     res.json(newUser.rows[0]);
   }
@@ -52,11 +52,12 @@ app.post("/api/auth/register", async (req, res) => {
 });
 
 app.post("/api/auth/login", async (req, res) => {
-    const { email, password } = req.body;
+    const { "login-email": email, "login-password": password } = req.body;
     console.log(email, password);
     const loginRequest = await pool.query("SELECT email, password FROM public.\"user\" WHERE email = $1 AND password = $2",
         [email, password]
     );
+
     res.json(loginRequest.rows[0]);
 });
 

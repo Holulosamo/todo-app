@@ -1,6 +1,6 @@
-export default function Button({text, customStyle, formProperty}){
+export default function Button({text, customStyle}){
     return(
-        <button className={`cursor-pointer ${customStyle}`} form={formProperty}>
+        <button className={`cursor-pointer ${customStyle}`}>
             {text}
         </button>
     )

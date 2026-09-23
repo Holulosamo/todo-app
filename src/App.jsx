@@ -25,17 +25,13 @@ const schema = z.object({
 })
 
 function App() {
-  const methods = useForm({
-    resolver: zodResolver(schema),
-    mode: "onSubmit",
-    reValidateMode: "onSubmit",
-  });
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const {theme} = useContext(ThemeContext);
   
   return (
-    <FormProvider {...methods}>
+    <FormProvider>
       <section className="section">
       <Header/>   
       <Routes>
