@@ -19,6 +19,7 @@ const pool = require('./db.js');
 //   .catch(err => console.error('Connection error', err.stack));
 
 const app = express();
+const salt = bcrypt.genSaltSync(10);
 
 app.use(express.json());
 app.use(cors());
@@ -26,8 +27,6 @@ app.use(cors());
 app.listen(3001, () => {
   console.log('El servidor es http://localhost:3001');
 });
-
-console.log(app)
 
 app.get('/', function(req, res){
   res.send('Maricon');
@@ -37,7 +36,6 @@ app.post("/api/auth/register", async (req, res) => {
   console.log(req.body)
   const {registerUsername, registerEmail, registerPassword} = req.body;
   try{
-    const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(registerPassword, salt);
     const newUser = await pool.query(
       "INSERT INTO public.\"user\"(username, email, password) VALUES ($1, $2, $3) RETURNING *",
@@ -53,11 +51,14 @@ app.post("/api/auth/register", async (req, res) => {
 
 app.post("/api/auth/login", async (req, res) => {
     const { "login-email": email, "login-password": password } = req.body;
-    console.log(email, password);
-    const loginRequest = await pool.query("SELECT email, password FROM public.\"user\" WHERE email = $1 AND password = $2",
-        [email, password]
+    const loginRequest = await pool.query("SELECT email, password FROM public.\"user\" WHERE email = $1",
+        [email]
     );
-
-    res.json(loginRequest.rows[0]);
+    const isPasswordValid = await bcrypt.compare(password, loginRequest.rows[0].password);
+    if (isPasswordValid) {
+        res.json({ message: 'Login successful' });
+    } else {
+        res.status(401).json({ error: 'Invalid email or password' });
+    }
 });
 
